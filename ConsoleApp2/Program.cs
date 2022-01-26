@@ -124,6 +124,7 @@ class Fly540Scraper
 
                     string fullInArrDate = DateTime.ParseExact($"{inYear} {inArrDate} {inArrTime}", "yyyy ddd dd, MMM h:mmtt", null).ToString("ddd MMM dd HH:mm:ss 'GMT' yyyy");
 
+                    //Gets price and taxes.
                     string price = newDocument.DocumentNode.SelectSingleNode("//span[@class='fly5-price']").InnerText.Trim();
 
                     var taxes = newDocument.DocumentNode.SelectNodes("//div[contains(text(), 'Tax')]/span");
@@ -137,7 +138,6 @@ class Fly540Scraper
 
                     var newLine = $"{outFromIATA};{outToIATA};{fullOutDepDate};{fullOutArrDate};{inFromIATA};{inToIATA};{fullInDepDate};{fullInArrDate};{price};{finalTaxes.ToString("F" + 2)}";
 
-                    Console.WriteLine(newLine);
                     //Adds line to csv variable.
                     csv.AppendLine(newLine);
 
