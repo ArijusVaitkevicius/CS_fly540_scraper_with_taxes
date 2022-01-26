@@ -36,7 +36,7 @@ class Fly540Scraper
     {
         var chromeOptions = new ChromeOptions();
         chromeOptions.AddArguments("headless");
-        IWebDriver driver = new ChromeDriver("c:/users/arijus/source/repos/consoleapp1/consoleapp1/bin/debug", chromeOptions);
+        IWebDriver driver = new ChromeDriver("c:/users/arijus/source/repos/consoleapp1/consoleapp1/bin/debug", chromeOptions);//Specify the path to ChromeDriver.exe
         driver.Manage().Window.Maximize();
 
         HtmlWeb web = new HtmlWeb();
